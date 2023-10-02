@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Exchange</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Book Exchange</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Admin Panel</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container mt-4">
+    <h1>Welcome to Book Exchange</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>List a Book</h3>
+            <form id="listBookForm">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Enter book title">
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" class="form-control" id="author" placeholder="Enter author name">
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <input type="text" class="form-control" id="genre" placeholder="Enter book genre">
+                </div>
+                <div class="form-group">
+                    <label for="condition">Condition</label>
+                    <input type="text" class="form-control" id="condition" placeholder="Enter book condition">
+                </div>
+                <button type="submit" class="btn btn-primary">List Book</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3>Search for Books</h3>
+            <form id="searchBookForm">
+                <div class="form-group">
+                    <label for="searchKeyword">Keyword</label>
+                    <input type="text" class="form-control" id="searchKeyword" placeholder="Enter search keyword">
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <div class="search-results mt-3">
+                <!-- Display search results dynamically here -->
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>Book Exchange</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Available Books</h4>
+            <ul id="availableBooksList">
+                <!-- Display available books dynamically here -->
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h4>Your Books</h4>
+            <ul id="userBooksList">
+                <!-- Display user's books dynamically here -->
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>User Ratings and Reviews</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Rate a Book</h4>
+            <form id="rateBookForm">
+                <div class="form-group">
+                    <label for="bookId">Book</label>
+                    <select class="form-control" id="bookId">
+                        <!-- Display available books dynamically here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <select class="form-control" id="rating">
+                        <option value="1">1 Star</option>
+                        <option value="2">2 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="5">5 Stars</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="review">Review</label>
+                    <textarea class="form-control" id="review" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h4>User Reviews</h4>
+            <ul id="userReviewsList">
+                <!-- Display user's reviews dynamically here -->
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>Admin Panel</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Add New Book</h4>
+            <form id="addBookForm">
+                <div class="form-group">
+                    <label for="newBookTitle">Title</label>
+                    <input type="text" class="form-control" id="newBookTitle" placeholder="Enter book title">
+                </div>
+                <div class="form-group">
+                    <label for="newBookAuthor">Author</label>
+                    <input type="text" class="form-control" id="newBookAuthor" placeholder="Enter author name">
+                </div>
+                <div class="form-group">
+                    <label for="newBookGenre">Genre</label>
+                    <input type="text" class="form-control" id="newBookGenre" placeholder="Enter book genre">
+                </div>
+                <div class="form-group">
+                    <label for="newBookCondition">Condition</label>
+                    <input type="text" class="form-control" id="newBookCondition"
+                           placeholder="Enter book condition">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h4>All Books</h4>
+            <ul id="allBooksList">
+                <!-- Display all books dynamically here -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+
+</html>
